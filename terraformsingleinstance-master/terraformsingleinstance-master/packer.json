@@ -1,27 +1,36 @@
 {
     "_comment" : "Create a AWS AMI ith AMZ Linux 2018 with Java and Tomcat",
     "variables": {
+<<<<<<< HEAD
       "aws_access_key":AKIAR6LLWJ3OUMOIFTMY"",
       "aws_secret_key": "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",
       "region": "",
       "source_ami":"",
       "instance_type":"",
       "vpc_id": "",
-      "subnet_id": ""
+      "subnet_id": "
+      "aws_access_key": "AKIAYEMCGMWU4PTYGSHZ",
+      "aws_secret_key": "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",
+     # "region": "",
+     # "source_ami":"",
+     # "instance_type":"",
+     # "vpc_id": "",
+     # "subnet_id": "" 
     },
-    "_comment1" : "packer build -var \"aws_secret_key=foo\" template.json",
-    "_comment2" : "packer build -var-file creds.json template.json",
+    #"_comment1" : "packer build -var \"aws_secret_key=foo\" template.json",
+    #"_comment2" : "packer build -var-file creds.json template.json",
     "builders": [{
-      "access_key": "{{user 'aws_access_key`}}",
-      "secret_key": "{{user 'aws_secret_key`}}",
       "type": "amazon-ebs",
-      "region": "{{user `region`}}",
-      "source_ami": "{{user `source_ami`}}",
-      "instance_type": "{{user `instance_type`}}",
+     # "access_key": "{{user 'aws_access_key`}}",
+     # "secret_key": "{{user 'aws_secret_key`}}",
+      "type": "amazon-ebs",
+      "region": "{{user `us-east-1`}}",
+      "source_ami": "{{user `ami-0f6024c31ebd5787b`}}",
+      "instance_type": "{{user `t2.micro`}}",
       "ssh_username": "ec2-user",
       "ami_name": "DevOpsClass-Build-{{isotime | clean_resource_name}}",
-      "vpc_id": "{{user `vpc_id`}}",
-      "subnet_id": "{{user `subnet_id`}}",
+      "vpc_id": "{{user `vpc-08558c0899be25b6d`}}",
+      "subnet_id": "{{user `subnet-0c021fbafa1145340`}}",
       "tags": {
         "Name": "DevOpsClass-Build-{{isotime | clean_resource_name}}"
       }
